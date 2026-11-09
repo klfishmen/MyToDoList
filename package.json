@@ -1,0 +1,17 @@
+{
+  "name": "mytodolist",
+  "version": "1.0.0",
+  "description": "支援 Google 登入與多人即時協作的待辦清單 (Firebase project-971217462532)",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": [
+    "firebase",
+    "todo",
+    "collaboration",
+    "google-auth"
+  ],
+  "author": "",
+  "license": "MIT"
+}

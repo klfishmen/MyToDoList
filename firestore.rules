@@ -1,0 +1,35 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // 使用者基本驗證檢查函數
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+    
+    // 清單規則：建立者或協作者有存取權限
+    match /lists/{listId} {
+      allow read, create: if isAuthenticated();
+      
+      // 更新與刪除：協作者可更新內容，只有建立者或協作者可刪除
+      allow update: if isAuthenticated() && (
+        resource.data.createdBy == request.auth.uid ||
+        resource.data.collaborators.hasAny([request.auth.uid]) ||
+        request.resource.data.collaborators.hasAny([request.auth.uid]) // 允許使用者將自己加入協作者列表
+      );
+      
+      allow delete: if isAuthenticated() && resource.data.createdBy == request.auth.uid;
+      
+      // 清單內的待辦任務
+      match /tasks/{taskId} {
+        allow read, write: if isAuthenticated();
+      }
+    }
+    
+    // 使用者個人資料
+    match /users/{userId} {
+      allow read: if isAuthenticated();
+      allow write: if isAuthenticated() && request.auth.uid == userId;
+    }
+  }
+}
