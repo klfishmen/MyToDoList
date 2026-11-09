@@ -4,6 +4,8 @@
 
 專案綁定現有 Firebase 專案：`project-971217462532`。
 
+🌐 **線上展示網址 (GitHub Pages)**：[https://klfishmen.github.io/MyToDoList/](https://klfishmen.github.io/MyToDoList/)
+
 ---
 
 ## ✨ 核心特色
@@ -67,7 +69,7 @@ npm start
 2. 點擊 **開始使用 (Get started)**。
 3. 在 **登入方式 (Sign-in method)** 標籤頁中，點選 **Google**。
 4. 開啟 **啟用 (Enable)** 開關，設定專案支援電子郵件，然後點選 **儲存 (Save)**。
-5. 切換到 **設定 (Settings)** 標籤頁 > **已授權網域 (Authorized domains)**，確認已有 `localhost`（通常預設已包含）。
+5. 切換到 **設定 (Settings)** 標籤頁 > **已授權網域 (Authorized domains)**，確認已有 `localhost`，並請點擊「新增網域」加入 GitHub Pages 網域：`klfishmen.github.io`（如此在 GitHub Pages 上也能正常使用 Google 登入）。
 
 ### 步驟 3：建立 Cloud Firestore 資料庫
 1. 在左側選單點選 **建置 (Build)** > **Firestore Database**。
